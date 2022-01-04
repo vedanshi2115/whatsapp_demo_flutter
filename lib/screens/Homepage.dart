@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/NewScreen/Callscreen.dart';
+import 'package:whatsapp/Pages/Camerapage.dart';
 import 'package:whatsapp/Pages/Chatspage.dart';
+import 'package:whatsapp/Pages/statuspage.dart';
 
 class Homepage extends StatefulWidget {
-  const Homepage({ Key key }) : super(key: key);
+  const Homepage({Key key}) : super(key: key);
 
   @override
   _HomepageState createState() => _HomepageState();
 }
 
-class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin {
-
-   TabController _controller;
+class _HomepageState extends State<Homepage>
+    with SingleTickerProviderStateMixin {
+  TabController _controller;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _controller = TabController(length: 4,vsync: this,initialIndex: 0);
+    _controller = TabController(length: 4, vsync: this, initialIndex: 0);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,17 +29,30 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
         title: Text("Whatsapp"),
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-         PopupMenuButton<String>
-         
-         (itemBuilder:(BuildContext contesxt){
-           return[
-             PopupMenuItem(child: Text("New group"),value:"new group",),
-             PopupMenuItem(child: Text("New brodcast"), value: "new brodcast",),
-             PopupMenuItem(child: Text("Whats web"),value: "Whast web",),
-             PopupMenuItem(child: Text("Starred message"),value: "Starred message",),
-             PopupMenuItem(child: Text("setting"),value: "Setting",),
-           ];
-         })
+          PopupMenuButton<String>(itemBuilder: (BuildContext contesxt) {
+            return [
+              PopupMenuItem(
+                child: Text("New group"),
+                value: "new group",
+              ),
+              PopupMenuItem(
+                child: Text("New brodcast"),
+                value: "new brodcast",
+              ),
+              PopupMenuItem(
+                child: Text("Whats web"),
+                value: "Whast web",
+              ),
+              PopupMenuItem(
+                child: Text("Starred message"),
+                value: "Starred message",
+              ),
+              PopupMenuItem(
+                child: Text("setting"),
+                value: "Setting",
+              ),
+            ];
+          })
         ],
         bottom: TabBar(
           controller: _controller,
@@ -53,20 +70,18 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
             Tab(
               text: "CALLS",
             ),
-            
           ],
         ),
       ),
-      body: 
-         TabBarView(
-           controller: _controller,
-           children: [
-             Text("camera"),
-             Chatspage(),
-             Text("status"),
-             Text("Calss"),
-           ],
-         ),
+      body: TabBarView(
+        controller: _controller,
+        children: [
+          Camerapage(),
+          Chatspage(),
+          Statuspage(),
+          Callscreen(),
+        ],
+      ),
     );
   }
 }

@@ -36,6 +36,10 @@ dependencies:
   cupertino_icons: ^1.0.0
   emoji_picker: ^0.1.0 
   shared_preferences: ^0.5.12+4
+  camera: ^0.7.0+2
+  path_provider: ^1.6.22
+  path:
+  video_player: ^1.0.1
  
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,4 @@
 class Chatsmodel {
-
   String name;
   String icon;
   bool isgroup;
@@ -8,15 +7,13 @@ class Chatsmodel {
   String currentMessage;
   bool select = false;
 
-  Chatsmodel(
-    {
-      this.name,
-      this.icon,
-      this.isgroup,
-      this.time,
-      this.status,
-      this.currentMessage,
-      this.select=false,
-    });
-  
+  Chatsmodel({
+    this.name,
+    this.icon,
+    this.isgroup,
+    this.time,
+    this.status,
+    this.currentMessage,
+    this.select = false,
+  });
 }
